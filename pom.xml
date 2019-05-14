@@ -19,27 +19,24 @@
             </plugin>
         </plugins>
     </build>
-    <properties>
-        <corenlp.version>3.9.1</corenlp.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>edu.stanford.nlp</groupId>
             <artifactId>stanford-corenlp</artifactId>
-            <version>${corenlp.version}</version>
+            <version>3.9.1</version>
         </dependency>
 
         <dependency>
             <groupId>edu.stanford.nlp</groupId>
             <artifactId>stanford-corenlp</artifactId>
-            <version>${corenlp.version}</version>
+            <version>3.9.1</version>
             <classifier>models</classifier>
         </dependency>
 
         <dependency>
             <groupId>edu.stanford.nlp</groupId>
             <artifactId>stanford-corenlp</artifactId>
-            <version>${corenlp.version}</version>
+            <version>3.9.1</version>
             <classifier>models-chinese</classifier>
         </dependency>
 
@@ -55,6 +52,8 @@
             <artifactId>opennlp-uima</artifactId>
             <version>1.9.1</version>
         </dependency>
+
+
 
     </dependencies>
 

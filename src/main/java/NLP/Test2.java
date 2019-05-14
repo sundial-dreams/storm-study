@@ -1,20 +1,24 @@
 package NLP;
 
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.pipeline.Annotation;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.util.CoreMap;
 import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.List;
 
 public class Test2 {
     static public void main(String[] args) throws Exception {
-        String sentence = "Hi. i am dpf. we provide free tutorials on various technologies";
-        InputStream inputStream = new FileInputStream("./src/main/resources/en-sent.bin");
-        SentenceModel model = new SentenceModel(inputStream);
-        SentenceDetectorME detectorME = new SentenceDetectorME(model);
-        String[] sentences = detectorME.sentDetect(sentence);
-        for (String sent : sentences) {
-            System.out.println(sent);
+        Annotation annotation = new Annotation("I am dpf and 20 years old.");
+        StanfordCoreNLP pipeline = new StanfordCoreNLP();
+        pipeline.annotate(annotation);
+        List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
+        for (CoreMap sentence : sentences) {
+            System.out.println(sentence.get(CoreAnnotations.LemmaAnnotation.class));
         }
     }
 }
