@@ -32,13 +32,13 @@ public class ReadDocsSpout extends BaseRichSpout {
     public void nextTuple() {
         if (completed) return;
         try {
-            while (scanner.hasNextLine()) {
+            if (scanner.hasNextLine()) {
                 collector.emit(new Values(scanner.nextLine()));
+            } else {
+                completed = true;
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            completed = true;
         }
     }
 
